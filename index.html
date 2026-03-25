@@ -13,7 +13,6 @@
         /* RESET BÁSICO */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* TIPOGRAFIA E FUNDO DA PÁGINA */
         body { 
             background-color: #f4f7f9; 
             display: flex; 
@@ -23,138 +22,103 @@
             color: #334155; 
         }
 
-        /* CABEÇALHO */
+        /* CABEÇALHO (Mais compacto para sobrar espaço para a tabela) */
         header { 
             background-color: #000080; 
             display: flex; 
             align-items: center; 
-            padding: 20px 5%; 
+            padding: 15px 5%; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
             position: relative;
             z-index: 10;
         }
         header img { 
-            height: 70px; 
+            height: 60px; 
             border-radius: 0; 
             background-color: transparent; 
-            margin-right: 25px; 
+            margin-right: 20px; 
         }
         
-        .header-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        header h1 { 
-            color: #ffffff; 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 32px; 
-            letter-spacing: -0.5px;
-        }
-
-        header p {
-            color: #94a3b8; 
-            font-size: 14px;
-            margin-top: 4px;
-        }
+        .header-text { display: flex; flex-direction: column; }
+        header h1 { color: #ffffff; font-family: 'Montserrat', sans-serif; font-size: 28px; letter-spacing: -0.5px; }
+        header p { color: #94a3b8; font-size: 13px; margin-top: 2px; }
 
         /* CONTEÚDO PRINCIPAL */
         main { 
             flex-grow: 1; 
-            padding: 40px 5%; 
+            padding: 25px 5%; 
             max-width: 1400px; 
             margin: 0 auto;
             width: 100%;
         }
 
         /* NAVEGAÇÃO SUPERIOR */
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 25px;
-        }
-
+        .nav-container { display: flex; justify-content: center; margin-bottom: 20px; }
         .nav-buttons { 
-            display: inline-flex; 
-            background-color: #e2e8f0; 
-            padding: 6px; 
-            border-radius: 50px; 
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+            display: inline-flex; background-color: #e2e8f0; padding: 5px; 
+            border-radius: 50px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
         }
-
         .nav-btn { 
-            background-color: transparent; 
-            border: none; 
-            padding: 12px 30px; 
-            font-size: 14px; 
-            font-weight: 600; 
-            font-family: 'Montserrat', sans-serif;
-            color: #64748b; 
-            cursor: pointer; 
-            border-radius: 40px; 
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            background-color: transparent; border: none; padding: 10px 25px; 
+            font-size: 13px; font-weight: 600; font-family: 'Montserrat', sans-serif;
+            color: #64748b; cursor: pointer; border-radius: 40px; transition: all 0.3s ease; 
         }
-
         .nav-btn:hover { color: #000080; }
-        
-        .nav-btn.active { 
-            background-color: #ffffff; 
-            color: #000080; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
-        }
+        .nav-btn.active { background-color: #ffffff; color: #000080; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 
         /* ÁREA DAS TABELAS */
         .table-wrapper {
             background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
-            overflow-x: auto; /* Permite rolagem horizontal */
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05); 
+            overflow: hidden; /* Remove rolagem extra */
             border: 1px solid #e2e8f0;
         }
 
         .tab-content { display: none; animation: fadeIn 0.4s ease; }
         .tab-content.active { display: block; }
         
-        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        /* Ajuste fino na tabela para não gerar barra de rolagem */
+        table { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: auto; }
         
         th, td { 
-            padding: 16px 20px; 
+            padding: 12px 15px; /* Mais compacto para caber tudo na tela (sem rolagem vertical) */
             text-align: left; 
             border-bottom: 1px solid #f1f5f9; 
-            white-space: nowrap; /* ALTERAÇÃO AQUI: Impede quebra de linha em TODAS as colunas */
+            line-height: 1.4; /* Melhora leitura com quebra de linha */
+            /* REMOVIDO o white-space: nowrap global para permitir quebra de texto */
         }
         
         th { 
-            background-color: #f8fafc; 
-            color: #0f172a; 
-            font-weight: 600; 
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 0.5px;
-            border-bottom: 2px solid #e2e8f0;
+            background-color: #f8fafc; color: #0f172a; font-weight: 600; 
+            font-family: 'Montserrat', sans-serif; text-transform: uppercase;
+            font-size: 11px; letter-spacing: 0.5px; border-bottom: 2px solid #e2e8f0;
         }
 
         tr:nth-child(even) { background-color: #fafbfc; }
         tr:hover { background-color: #f0f9ff; } 
-
         td strong { color: #0f172a; font-weight: 600; }
 
-        /* RODAPÉ SIMPLES */
-        footer { 
-            background-color: #ffffff; 
-            padding: 20px; 
-            text-align: center;
-            border-top: 1px solid #e2e8f0;
-            font-size: 12px;
-            color: #94a3b8;
+        /* REGRAS DE COLUNAS ESPECÍFICAS */
+        /* Impede apenas que Telefones (Coluna 2) e CEP (Coluna 5) quebrem no meio */
+        table td:nth-child(2), table td:nth-child(5) { 
+            white-space: nowrap; 
+        }
+        /* Dá um espaço preferencial para a coluna de endereço para ela não espremer muito */
+        table td:nth-child(4) {
+            min-width: 280px;
+        }
+        /* Permite que emails muito grandes quebrem se necessário */
+        table td:nth-child(3) {
+            word-break: break-word;
         }
 
-        /* Animação */
-        @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(5px); } 
-            to { opacity: 1; transform: translateY(0); } 
+        footer { 
+            background-color: #ffffff; padding: 15px; text-align: center;
+            border-top: 1px solid #e2e8f0; font-size: 12px; color: #94a3b8;
         }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -180,17 +144,17 @@
             <div id="notas" class="tab-content active">
                 <table>
                     <thead>
-                        <tr><th>Nome</th><th>Contato</th><th>Email</th><th>Endereço</th><th>Cidade</th><th>Estado</th><th>CEP</th><th>Anotação</th></tr>
+                        <tr><th>Nome</th><th>Contato</th><th>Email</th><th>Endereço</th><th>CEP</th><th>Anotação</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td><strong>1º Ofício de Notas de São Luís</strong></td><td>(98) 3231-9142</td><td>cartoriodeprotestoslz@gmail.com</td><td>RUA Rua dos Azulões, 01. Edifício Office Tower - Loja 22. Jardim Renascença</td><td>São Luís/MA</td><td>MA</td><td>65075-060</td><td></td></tr>
-                        <tr><td><strong>2º Ofício de Notas de São Luís</strong></td><td>(98) 99972-8515</td><td>notas@2notasslz.com.br, contato@2notasslz.com.br</td><td>AVENIDA JOÃO PESSOA, 404. LOJA 03 - CENTRO COMERCIAL OUTEIRO MALL. OUTEIRO DA CRUZ.</td><td>São Luís/MA</td><td>MA</td><td>65010-003</td><td></td></tr>
-                        <tr><td><strong>3º Ofício de Notas de São Luís</strong></td><td>(98) 3231-4817</td><td>contato@3cartoriosaoluis.com.br, apostilamento@3cartoriosaoluis.com.br</td><td>AVENIDA dos Holandeses, 36.</td><td>São Luís/MA</td><td>MA</td><td>5020-230</td><td><strong>LOCALIZADO NO SHOPPING DO AUTOMOVEL</strong></td></tr>
-                        <tr><td><strong>4º TABELIONATO DE NOTAS</strong></td><td>(98) 3243-5695</td><td>cartorio@4notasslz.com.br</td><td>Avenida Daniel de La Touche, 20, Vicente Fialho</td><td>São Luís/MA</td><td>MA</td><td>65074-115</td><td><strong>EDIFICIO MOCELIN TOWER</strong></td></tr>
-                        <tr><td><strong>5º TABELIONATO DE NOTAS</strong></td><td>(98) 3303-7155</td><td>cartorio@5oficiosaoluis.com.br</td><td>Avenida Colares Moreira, 2. Edifício Planta Tower, térreo, lojas 13 e 14 - Jardim Renascença</td><td>São Luís/MA</td><td>MA</td><td>65075-441</td><td><strong>PLANTA TOWER</strong></td></tr>
-                        <tr><td><strong>6º TABELIONATO DE NOTAS</strong></td><td>(98) 3115-6006</td><td>contato@6tabelionato.not.br</td><td>Avenida São Luís Rei de França, nº 08</td><td>São Luís/MA</td><td>MA</td><td>65065-470</td><td><strong>SHOPPING RIO ANIL</strong></td></tr>
-                        <tr><td><strong>7º TABELIONATO DE NOTAS DE SÃO LUÍS</strong></td><td>(98) 3256-2266</td><td>contato@cartoriosaoluis.not.br</td><td>Avenida Daniel de La Touche, nº 6, quadra D, Área 1, Cohama</td><td>São Luís/MA</td><td>MA</td><td>65074-115</td><td><strong>EM FRENTE AO MC DONALDS</strong></td></tr>
-                        <tr><td><strong>8º TABELIONATO DE NOTAS</strong></td><td>(98) 3242-1734</td><td>8tabelionatonotasslz@gmail.com</td><td>Rua do Amor, 23, Vila Bacanga</td><td>São Luís/MA</td><td>MA</td><td>65080-840</td><td></td></tr>
+                        <tr><td><strong>1º Ofício de Notas de São Luís</strong></td><td>(98) 3231-9142</td><td>cartoriodeprotestoslz@gmail.com</td><td>RUA Rua dos Azulões, 01. Edifício Office Tower - Loja 22. Jardim Renascença</td><td>65075-060</td><td></td></tr>
+                        <tr><td><strong>2º Ofício de Notas de São Luís</strong></td><td>(98) 99972-8515</td><td>notas@2notasslz.com.br, contato@2notasslz.com.br</td><td>AVENIDA JOÃO PESSOA, 404. LOJA 03 - CENTRO COMERCIAL OUTEIRO MALL. OUTEIRO DA CRUZ.</td><td>65010-003</td><td></td></tr>
+                        <tr><td><strong>3º Ofício de Notas de São Luís</strong></td><td>(98) 3231-4817</td><td>contato@3cartoriosaoluis.com.br, apostilamento@3cartoriosaoluis.com.br</td><td>AVENIDA dos Holandeses, 36.</td><td>5020-230</td><td><strong>LOCALIZADO NO SHOPPING DO AUTOMOVEL</strong></td></tr>
+                        <tr><td><strong>4º TABELIONATO DE NOTAS</strong></td><td>(98) 3243-5695</td><td>cartorio@4notasslz.com.br</td><td>Avenida Daniel de La Touche, 20, Vicente Fialho</td><td>65074-115</td><td><strong>EDIFICIO MOCELIN TOWER</strong></td></tr>
+                        <tr><td><strong>5º TABELIONATO DE NOTAS</strong></td><td>(98) 3303-7155</td><td>cartorio@5oficiosaoluis.com.br</td><td>Avenida Colares Moreira, 2. Edifício Planta Tower, térreo, lojas 13 e 14 - Jardim Renascença</td><td>65075-441</td><td><strong>PLANTA TOWER</strong></td></tr>
+                        <tr><td><strong>6º TABELIONATO DE NOTAS</strong></td><td>(98) 3115-6006</td><td>contato@6tabelionato.not.br</td><td>Avenida São Luís Rei de França, nº 08</td><td>65065-470</td><td><strong>SHOPPING RIO ANIL</strong></td></tr>
+                        <tr><td><strong>7º TABELIONATO DE NOTAS DE SÃO LUÍS</strong></td><td>(98) 3256-2266</td><td>contato@cartoriosaoluis.not.br</td><td>Avenida Daniel de La Touche, nº 6, quadra D, Área 1, Cohama</td><td>65074-115</td><td><strong>EM FRENTE AO MC DONALDS</strong></td></tr>
+                        <tr><td><strong>8º TABELIONATO DE NOTAS</strong></td><td>(98) 3242-1734</td><td>8tabelionatonotasslz@gmail.com</td><td>Rua do Amor, 23, Vila Bacanga</td><td>65080-840</td><td></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -198,13 +162,13 @@
             <div id="imoveis" class="tab-content">
                 <table>
                     <thead>
-                        <tr><th>Nome</th><th>Contato</th><th>Email</th><th>Endereço</th><th>Cidade</th><th>Estado</th><th>CEP</th><th>Anotação</th></tr>
+                        <tr><th>Nome</th><th>Contato</th><th>Email</th><th>Endereço</th><th>CEP</th><th>Anotação</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td><strong>1ª Zona de Registro de Imóveis de São Luís</strong></td><td>(98) 98785-3146</td><td>1rislcartma@gmail.com</td><td>Rua das Andirobas, 10, Edifício Executive Lake Center, 040. SALA, Jardim Renascença</td><td>São Luís/MA</td><td>MA</td><td>65075-040</td><td></td></tr>
-                        <tr><td><strong>2ª Zona de Registro de Imóveis de São Luís</strong></td><td>(98) 3232-7692</td><td>cartorioimoveisjurandyleite@hotmail.com</td><td>RUA GODOFREDO VIANA, 123. PROX. TEATRO ARTHUR AZEVEDO. CENTRO.</td><td>São Luís/MA</td><td>MA</td><td>65015-160</td><td></td></tr>
-                        <tr><td><strong>3ª Zona de Registro de Imóveis de São Luís</strong></td><td>(98) 3181-8662</td><td>3rislz@gmail.com</td><td>AVENIDA Avenida Daniel de La Touche, 20. Edifício Mocelin Tower, 9º andar. Cohama</td><td>São Luís/MA</td><td>MA</td><td>65074-115</td><td></td></tr>
-                        <tr><td><strong>4º Registro de Imóveis de São Luís</strong></td><td>(98) 3181-0104<br>99118-1870</td><td>4ri.saoluis@gmail.com</td><td>AVENIDA AVENIDA DOS HOLANDESES, 7508. loja 12, CENTRO COMERCIAL QUEIROZ CENTER, Olho Dagua</td><td>São Luís/MA</td><td>MA</td><td>65065-180</td><td></td></tr>
+                        <tr><td><strong>1ª Zona de Registro de Imóveis de São Luís</strong></td><td>(98) 98785-3146</td><td>1rislcartma@gmail.com</td><td>Rua das Andirobas, 10, Edifício Executive Lake Center, 040. SALA, Jardim Renascença</td><td>65075-040</td><td></td></tr>
+                        <tr><td><strong>2ª Zona de Registro de Imóveis de São Luís</strong></td><td>(98) 3232-7692</td><td>cartorioimoveisjurandyleite@hotmail.com</td><td>RUA GODOFREDO VIANA, 123. PROX. TEATRO ARTHUR AZEVEDO. CENTRO.</td><td>65015-160</td><td></td></tr>
+                        <tr><td><strong>3ª Zona de Registro de Imóveis de São Luís</strong></td><td>(98) 3181-8662</td><td>3rislz@gmail.com</td><td>AVENIDA Avenida Daniel de La Touche, 20. Edifício Mocelin Tower, 9º andar. Cohama</td><td>65074-115</td><td></td></tr>
+                        <tr><td><strong>4º Registro de Imóveis de São Luís</strong></td><td>(98) 3181-0104<br>99118-1870</td><td>4ri.saoluis@gmail.com</td><td>AVENIDA AVENIDA DOS HOLANDESES, 7508. loja 12, CENTRO COMERCIAL QUEIROZ CENTER, Olho Dagua</td><td>65065-180</td><td></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -212,14 +176,14 @@
             <div id="civil" class="tab-content">
                 <table>
                     <thead>
-                        <tr><th>Nome</th><th>Contato</th><th>Email</th><th>Endereço</th><th>Cidade</th><th>Estado</th><th>CEP</th><th>Anotação</th></tr>
+                        <tr><th>Nome</th><th>Contato</th><th>Email</th><th>Endereço</th><th>CEP</th><th>Anotação</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td><strong>1ª Zona de Registro Civil das Pessoas Naturais de São Luís</strong></td><td>(98) 3303-4546<br>(98) 98544-9732</td><td>primeirazonama@gmail.com</td><td>RUA Rua do Egito, 96. Centro</td><td>São Luís/MA</td><td>MA</td><td>65010-190</td><td></td></tr>
-                        <tr><td><strong>2ª Zona de Registro Civil das Pessoas Naturais de São Luís</strong></td><td>(98) 3221-4996<br>(98) 98146-1592</td><td>saoluis.2rcpn@yahoo.com.br</td><td>RUA do Norte, 580. Centro</td><td>São Luís/MA</td><td>MA</td><td>65015-330</td><td></td></tr>
-                        <tr><td><strong>3ª Zona de Registro Civil das Pessoas Naturais de São Luís</strong></td><td>(98) 3243-4477<br>(98) 98718-6683</td><td>cartorio3zonama@hotmail.com</td><td>AVENIDA DOS EXPEDICIONÁRIOS, 133. João Paulo</td><td>São Luís/MA</td><td>MA</td><td>65015-330</td><td></td></tr>
-                        <tr><td><strong>4ª Zona de Registro Civil das Pessoas Naturais de São Luís</strong></td><td>(98) 3301-5518<br>(98) 99121-8080 (WhatsApp)</td><td>cartorio4zona@enochvasconcelos.com.br</td><td>AVENIDA Contorno Leste, 4. lote 14. Cohatrac/Parque Aurora</td><td>São Luís/MA</td><td>MA</td><td>65053-570</td><td></td></tr>
-                        <tr><td><strong>5ª Zona de Registro Civil das Pessoas Naturais de São Luís</strong></td><td>(98) 97022-2267<br>(98) 97022-2267</td><td>cartoriozona5@gmail.com</td><td>RUA DAS LIMEIRAS, 02. QUADRA B. JARDIM RENASCENÇA.</td><td>São Luís/MA</td><td>MA</td><td>65075-260</td><td></td></tr>
+                        <tr><td><strong>1ª Zona de Registro Civil das Pessoas Naturais de São Luís</strong></td><td>(98) 3303-4546<br>(98) 98544-9732</td><td>primeirazonama@gmail.com</td><td>RUA Rua do Egito, 96. Centro</td><td>65010-190</td><td></td></tr>
+                        <tr><td><strong>2ª Zona de Registro Civil das Pessoas Naturais de São Luís</strong></td><td>(98) 3221-4996<br>(98) 98146-1592</td><td>saoluis.2rcpn@yahoo.com.br</td><td>RUA do Norte, 580. Centro</td><td>65015-330</td><td></td></tr>
+                        <tr><td><strong>3ª Zona de Registro Civil das Pessoas Naturais de São Luís</strong></td><td>(98) 3243-4477<br>(98) 98718-6683</td><td>cartorio3zonama@hotmail.com</td><td>AVENIDA DOS EXPEDICIONÁRIOS, 133. João Paulo</td><td>65015-330</td><td></td></tr>
+                        <tr><td><strong>4ª Zona de Registro Civil das Pessoas Naturais de São Luís</strong></td><td>(98) 3301-5518<br>(98) 99121-8080</td><td>cartorio4zona@enochvasconcelos.com.br</td><td>AVENIDA Contorno Leste, 4. lote 14. Cohatrac/Parque Aurora</td><td>65053-570</td><td></td></tr>
+                        <tr><td><strong>5ª Zona de Registro Civil das Pessoas Naturais de São Luís</strong></td><td>(98) 97022-2267<br>(98) 97022-2267</td><td>cartoriozona5@gmail.com</td><td>RUA DAS LIMEIRAS, 02. QUADRA B. JARDIM RENASCENÇA.</td><td>65075-260</td><td></td></tr>
                     </tbody>
                 </table>
             </div>
