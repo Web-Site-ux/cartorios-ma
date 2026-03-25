@@ -15,20 +15,20 @@
         
         /* TIPOGRAFIA E FUNDO DA PÁGINA */
         body { 
-            background-color: #f4f7f9; /* Fundo cinza super claro e moderno */
+            background-color: #f4f7f9; 
             display: flex; 
             flex-direction: column; 
             min-height: 100vh; 
-            font-family: 'Inter', sans-serif; /* Fonte moderna para leitura */
-            color: #334155; /* Texto cinza escuro (mais suave que preto puro) */
+            font-family: 'Inter', sans-serif; 
+            color: #334155; 
         }
 
         /* CABEÇALHO */
         header { 
-            background-color: #000080; /* Seu azul marinho */
+            background-color: #000080; 
             display: flex; 
             align-items: center; 
-            padding: 20px 5%; /* Padding responsivo */
+            padding: 20px 5%; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
             position: relative;
             z-index: 10;
@@ -47,27 +47,27 @@
 
         header h1 { 
             color: #ffffff; 
-            font-family: 'Montserrat', sans-serif; /* Fonte de impacto para títulos */
+            font-family: 'Montserrat', sans-serif; 
             font-size: 32px; 
             letter-spacing: -0.5px;
         }
 
         header p {
-            color: #94a3b8; /* Subtítulo para dar contexto */
+            color: #94a3b8; 
             font-size: 14px;
             margin-top: 4px;
         }
 
-        /* CONTEÚDO PRINCIPAL (LIMITADOR DE LARGURA PARA TELAS GRANDES) */
+        /* CONTEÚDO PRINCIPAL */
         main { 
             flex-grow: 1; 
             padding: 40px 5%; 
-            max-width: 1400px; /* Evita que a tabela fique esticada demais em monitores ultrawide */
+            max-width: 1400px; 
             margin: 0 auto;
             width: 100%;
         }
 
-        /* NAVEGAÇÃO SUPERIOR (ABAS MODERNAS) */
+        /* NAVEGAÇÃO SUPERIOR */
         .nav-container {
             display: flex;
             justify-content: center;
@@ -78,7 +78,7 @@
             display: inline-flex; 
             background-color: #e2e8f0; 
             padding: 6px; 
-            border-radius: 50px; /* Estilo pílula */
+            border-radius: 50px; 
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
         }
 
@@ -103,12 +103,12 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
         }
 
-        /* ÁREA DAS TABELAS (CARD DESIGN) */
+        /* ÁREA DAS TABELAS */
         .table-wrapper {
             background-color: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Sombra elegante */
-            overflow-x: auto; /* Rolagem horizontal se não couber */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+            overflow-x: auto; /* Permite rolagem horizontal */
             border: 1px solid #e2e8f0;
         }
 
@@ -118,9 +118,10 @@
         table { width: 100%; border-collapse: collapse; font-size: 14px; }
         
         th, td { 
-            padding: 16px 20px; /* Mais respiro nas células */
+            padding: 16px 20px; 
             text-align: left; 
             border-bottom: 1px solid #f1f5f9; 
+            white-space: nowrap; /* ALTERAÇÃO AQUI: Impede quebra de linha em TODAS as colunas */
         }
         
         th { 
@@ -135,13 +136,9 @@
         }
 
         tr:nth-child(even) { background-color: #fafbfc; }
-        tr:hover { background-color: #f0f9ff; } /* Efeito de foco azul bem clarinho */
+        tr:hover { background-color: #f0f9ff; } 
 
         td strong { color: #0f172a; font-weight: 600; }
-
-        /* MANTER REGRAS SOLICITADAS ANTERIORMENTE */
-        table td:nth-child(2) { white-space: nowrap; }
-        #civil table td:nth-child(1) { white-space: nowrap; }
 
         /* RODAPÉ SIMPLES */
         footer { 
