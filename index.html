@@ -241,16 +241,22 @@
             
             table td:nth-child(3) { word-break: break-all; }
             
+            /* Ajustes do cabeçalho para mobile (mantendo lado a lado) */
             header {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px 5%;
+                flex-direction: row; 
+                padding: 15px 5%;
+                text-align: left;
             }
             header img {
-                margin-right: 0;
-                margin-bottom: 10px;
+                height: 45px; 
+                margin-right: 12px;
+                margin-bottom: 0;
             }
-            header h1 { font-size: 24px; }
+            header h1 { font-size: 18px; }
+            header p {
+                font-size: 11px;
+                margin-top: 0;
+            }
         }
     </style>
 </head>
@@ -290,7 +296,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nome"><strong>2º Ofício de Notas de São Luís</strong></td>
-                            <td data-label="Contato"><a href="tel:98999728515" class="phone-link">(98) 9 9972-8515</a></td>
+                            <td data-label="Contato"><a href="tel:98999728515" class="phone-link">(98) 99972-8515</a></td>
                             <td data-label="Email">notas@2notasslz.com.br<br>contato@2notasslz.com.br</td>
                             <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJBePW0uCO9gcR7WdYjBUNUBQ" target="_blank" rel="noopener noreferrer" class="map-link">Avenida João Pessoa, 404. Loja 03 - Centro Comercial Outeiro Mall. Outeiro da Cruz.</a></td>
                             <td data-label="CEP">65010-003</td>
@@ -356,7 +362,7 @@
                     <tbody>
                         <tr>
                             <td data-label="Nome"><strong>1ª Zona de Registro de Imóveis</strong></td>
-                            <td data-label="Contato"><a href="tel:98987853146" class="phone-link">(98) 9 8785-3146</a></td>
+                            <td data-label="Contato"><a href="tel:98987853146" class="phone-link">(98) 98785-3146</a></td>
                             <td data-label="Email">1rislcartma@gmail.com</td>
                             <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJK3X0enKP9gcRlG6D8pikyJU" target="_blank" rel="noopener noreferrer" class="map-link">Rua das Andirobas, 10, Edifício Executive Lake Center, Jardim Renascença</a></td>
                             <td data-label="CEP">65075-040</td>
@@ -380,7 +386,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nome"><strong>4º Registro de Imóveis</strong></td>
-                            <td data-label="Contato"><a href="tel:9831810104" class="phone-link">(98) 3181-0104</a><br><a href="tel:98991181870" class="phone-link">(98) 9 9118-1870</a></td>
+                            <td data-label="Contato"><a href="tel:9831810104" class="phone-link">(98) 3181-0104</a><br><a href="tel:98991181870" class="phone-link">(98) 99118-1870</a></td>
                             <td data-label="Email">4ri.saoluis@gmail.com</td>
                             <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJo-Xh8G2T9gcRNC30BEDI4fI" target="_blank" rel="noopener noreferrer" class="map-link">Avenida dos Holandeses, 7508. Loja 12, Centro Comercial Queiroz Center, Olho d'Água</a></td>
                             <td data-label="CEP">65065-180</td>
@@ -398,7 +404,7 @@
                     <tbody>
                         <tr>
                             <td data-label="Nome"><strong>1ª Zona de Registro Civil</strong></td>
-                            <td data-label="Contato"><a href="tel:9833034546" class="phone-link">(98) 3303-4546</a><br><a href="tel:98985449732" class="phone-link">(98) 9 8544-9732</a></td>
+                            <td data-label="Contato"><a href="tel:9833034546" class="phone-link">(98) 3303-4546</a><br><a href="tel:98985449732" class="phone-link">(98) 98544-9732</a></td>
                             <td data-label="Email">primeirazonama@gmail.com</td>
                             <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJJWDnyiO5ypIRT3518-FYrJ8" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Beira-Mar, 354 - Centro</a></td>
                             <td data-label="CEP">65010-070</td>
@@ -406,7 +412,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nome"><strong>2ª Zona de Registro Civil</strong></td>
-                            <td data-label="Contato"><a href="tel:9832214996" class="phone-link">(98) 3221-4996</a><br><a href="tel:98981461592" class="phone-link">(98) 9 8146-1592</a></td>
+                            <td data-label="Contato"><a href="tel:9832214996" class="phone-link">(98) 3221-4996</a><br><a href="tel:98981461592" class="phone-link">(98) 98146-1592</a></td>
                             <td data-label="Email">saoluis.2rcpn@yahoo.com.br</td>
                             <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJNSS8BB2P9gcRM3p1xKwtj_g" target="_blank" rel="noopener noreferrer" class="map-link">Rua do Norte, 580 - Centro</a></td>
                             <td data-label="CEP">65015-330</td>
@@ -414,7 +420,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nome"><strong>3ª Zona de Registro Civil</strong></td>
-                            <td data-label="Contato"><a href="tel:9832434477" class="phone-link">(98) 3243-4477</a><br><a href="tel:98987186683" class="phone-link">(98) 9 8718-6683</a></td>
+                            <td data-label="Contato"><a href="tel:9832434477" class="phone-link">(98) 3243-4477</a><br><a href="tel:98987186683" class="phone-link">(98) 98718-6683</a></td>
                             <td data-label="Email">cartorio3zonama@hotmail.com</td>
                             <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ5Z7ah7CP9gcRuqCI09wgupo" target="_blank" rel="noopener noreferrer" class="map-link">Avenida dos Expedicionários, 133 - João Paulo</a></td>
                             <td data-label="CEP">65040-120</td>
@@ -422,7 +428,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nome"><strong>4ª Zona de Registro Civil</strong></td>
-                            <td data-label="Contato"><a href="tel:9833015518" class="phone-link">(98) 3301-5518</a><br><a href="tel:98991218080" class="phone-link">(98) 9 9121-8080</a></td>
+                            <td data-label="Contato"><a href="tel:9833015518" class="phone-link">(98) 3301-5518</a><br><a href="tel:98991218080" class="phone-link">(98) 99121-8080</a></td>
                             <td data-label="Email">cartorio4zona@enochvasconcelos.com.br</td>
                             <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJA-KbqrKR9gcRCheixT69JI0" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Contorno Leste, 4 - Quadra 14 - Cohatrac I</a></td>
                             <td data-label="CEP">65053-570</td>
@@ -430,7 +436,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nome"><strong>5ª Zona de Registro Civil</strong></td>
-                            <td data-label="Contato"><a href="tel:98970222267" class="phone-link">(98) 9 7022-2267</a></td>
+                            <td data-label="Contato"><a href="tel:98970222267" class="phone-link">(98) 97022-2267</a></td>
                             <td data-label="Email">cartoriozona5@gmail.com</td>
                             <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJH_4utN2O9gcRDFJd5xGLztE" target="_blank" rel="noopener noreferrer" class="map-link">Rua das Limeiras, Qda. B, Casa 02 - Jardim Renascença</a></td>
                             <td data-label="CEP">65076-500</td>
