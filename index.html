@@ -144,6 +144,10 @@
 
         td strong { color: #0f172a; font-weight: 600; }
 
+        table td:nth-child(2), table td:nth-child(5) { 
+            white-space: nowrap; 
+        }
+
         /* LINKS DO GOOGLE MAPS E TELEFONES */
         .map-link, .phone-link {
             color: #000080;
@@ -160,6 +164,7 @@
         .phone-link {
             display: inline-block;
             margin-bottom: 2px;
+            white-space: nowrap; /* ORDEM EXPRESSA: Impede quebra no hífen */
         }
 
         /* RODAPÉ */
@@ -241,7 +246,7 @@
             
             table td:nth-child(3) { word-break: break-all; }
             
-            /* Ajustes do cabeçalho para mobile (mantendo lado a lado) */
+            /* Ajustes do cabeçalho para mobile */
             header {
                 flex-direction: row; 
                 padding: 15px 5%;
@@ -290,15 +295,15 @@
                             <td data-label="Nome"><strong>1º Ofício de Notas de São Luís</strong></td>
                             <td data-label="Contato"><a href="tel:9832319142" class="phone-link">(98) 3231-9142</a></td>
                             <td data-label="Email">cartoriodeprotestoslz@gmail.com</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJh_VQvOSO9gcRDsTRxijb9r8" target="_blank" rel="noopener noreferrer" class="map-link">Rua dos Azulões, 01. Edifício Office Tower - Loja 22. Jardim Renascença</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=1º+Ofício+de+Notas+de+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Rua dos Azulões, 01. Edifício Office Tower - Loja 22. Jardim Renascença</a></td>
                             <td data-label="CEP">65075-060</td>
                             <td data-label="Anotação"></td>
                         </tr>
                         <tr>
                             <td data-label="Nome"><strong>2º Ofício de Notas de São Luís</strong></td>
-                            <td data-label="Contato"><a href="tel:98999728515" class="phone-link">(98) 99972-8515</a></td>
+                            <td data-label="Contato"><a href="tel:98999728515" class="phone-link">(98) 9 9972-8515</a></td>
                             <td data-label="Email">notas@2notasslz.com.br<br>contato@2notasslz.com.br</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJBePW0uCO9gcR7WdYjBUNUBQ" target="_blank" rel="noopener noreferrer" class="map-link">Avenida João Pessoa, 404. Loja 03 - Centro Comercial Outeiro Mall. Outeiro da Cruz.</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=2º+Ofício+de+Notas+de+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Avenida João Pessoa, 404. Loja 03 - Centro Comercial Outeiro Mall. Outeiro da Cruz.</a></td>
                             <td data-label="CEP">65010-003</td>
                             <td data-label="Anotação"></td>
                         </tr>
@@ -306,7 +311,7 @@
                             <td data-label="Nome"><strong>3º Ofício de Notas de São Luís</strong></td>
                             <td data-label="Contato"><a href="tel:9832314817" class="phone-link">(98) 3231-4817</a></td>
                             <td data-label="Email">contato@3cartoriosaoluis.com.br</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJTROCMoyN9gcRgftf22Mh4ms" target="_blank" rel="noopener noreferrer" class="map-link">Avenida dos Holandeses, 36.</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=3º+Ofício+de+Notas+de+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Avenida dos Holandeses, 36.</a></td>
                             <td data-label="CEP">65020-230</td>
                             <td data-label="Anotação">LOCALIZADO NO SHOPPING DO AUTOMOVEL</td>
                         </tr>
@@ -314,7 +319,7 @@
                             <td data-label="Nome"><strong>4º Tabelionato de Notas</strong></td>
                             <td data-label="Contato"><a href="tel:9832435695" class="phone-link">(98) 3243-5695</a></td>
                             <td data-label="Email">cartorio@4notasslz.com.br</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ9z1O90yP9gcR6W4s9yBqxmo" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Daniel de La Touche, 20, Vicente Fialho</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=4º+Tabelionato+de+Notas+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Daniel de La Touche, 20, Vicente Fialho</a></td>
                             <td data-label="CEP">65074-115</td>
                             <td data-label="Anotação">EDIFICIO MOCELIN TOWER</td>
                         </tr>
@@ -322,7 +327,7 @@
                             <td data-label="Nome"><strong>5º Tabelionato de Notas</strong></td>
                             <td data-label="Contato"><a href="tel:9833037155" class="phone-link">(98) 3303-7155</a></td>
                             <td data-label="Email">cartorio@5oficiosaoluis.com.br</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJSYtjxi2M9gcRx8IKRs8aba4" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Colares Moreira, 2. Edifício Planta Tower, térreo - Jardim Renascença</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=5º+Tabelionato+de+Notas+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Colares Moreira, 2. Edifício Planta Tower, térreo - Jardim Renascença</a></td>
                             <td data-label="CEP">65075-441</td>
                             <td data-label="Anotação">PLANTA TOWER</td>
                         </tr>
@@ -330,7 +335,7 @@
                             <td data-label="Nome"><strong>6º Tabelionato de Notas</strong></td>
                             <td data-label="Contato"><a href="tel:9831156006" class="phone-link">(98) 3115-6006</a></td>
                             <td data-label="Email">contato@6tabelionato.not.br</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJU_tMnbSR9gcR0IbOKNKKTSY" target="_blank" rel="noopener noreferrer" class="map-link">Avenida São Luís Rei de França, nº 08</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=6º+Tabelionato+de+Notas+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Avenida São Luís Rei de França, nº 08</a></td>
                             <td data-label="CEP">65065-470</td>
                             <td data-label="Anotação">SHOPPING RIO ANIL</td>
                         </tr>
@@ -338,7 +343,7 @@
                             <td data-label="Nome"><strong>7º Tabelionato de Notas de São Luís</strong></td>
                             <td data-label="Contato"><a href="tel:9832562266" class="phone-link">(98) 3256-2266</a></td>
                             <td data-label="Email">contato@cartoriosaoluis.not.br</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJNSre_gSS9gcR96-QWpMQdDk" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Daniel de La Touche, nº 6, quadra D, Área 1, Cohama</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=7º+Tabelionato+de+Notas+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Daniel de La Touche, nº 6, quadra D, Área 1, Cohama</a></td>
                             <td data-label="CEP">65074-115</td>
                             <td data-label="Anotação">EM FRENTE AO MC DONALDS</td>
                         </tr>
@@ -346,7 +351,7 @@
                             <td data-label="Nome"><strong>8º Tabelionato de Notas</strong></td>
                             <td data-label="Contato"><a href="tel:9832421734" class="phone-link">(98) 3242-1734</a></td>
                             <td data-label="Email">8tabelionatonotasslz@gmail.com</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJiwjhGAOG9gcR8y-ejtfR-D0" target="_blank" rel="noopener noreferrer" class="map-link">Rua do Amor, 23, Vila Bacanga</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=8º+Tabelionato+de+Notas+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Rua do Amor, 23, Vila Bacanga</a></td>
                             <td data-label="CEP">65080-840</td>
                             <td data-label="Anotação"></td>
                         </tr>
@@ -362,9 +367,9 @@
                     <tbody>
                         <tr>
                             <td data-label="Nome"><strong>1ª Zona de Registro de Imóveis</strong></td>
-                            <td data-label="Contato"><a href="tel:98987853146" class="phone-link">(98) 98785-3146</a></td>
+                            <td data-label="Contato"><a href="tel:98987853146" class="phone-link">(98) 9 8785-3146</a></td>
                             <td data-label="Email">1rislcartma@gmail.com</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJK3X0enKP9gcRlG6D8pikyJU" target="_blank" rel="noopener noreferrer" class="map-link">Rua das Andirobas, 10, Edifício Executive Lake Center, Jardim Renascença</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=1ª+Zona+de+Registro+de+Imóveis+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Rua das Andirobas, 10, Edifício Executive Lake Center, Jardim Renascença</a></td>
                             <td data-label="CEP">65075-040</td>
                             <td data-label="Anotação"></td>
                         </tr>
@@ -372,7 +377,7 @@
                             <td data-label="Nome"><strong>2ª Zona de Registro de Imóveis</strong></td>
                             <td data-label="Contato"><a href="tel:9832327692" class="phone-link">(98) 3232-7692</a></td>
                             <td data-label="Email">cartorioimoveisjurandyleite@hotmail.com</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ435XTeaO9gcRfa0mYEbp6Ws" target="_blank" rel="noopener noreferrer" class="map-link">Rua Godofredo Viana, 123. Próx. Teatro Arthur Azevedo. Centro.</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=2ª+Zona+de+Registro+de+Imóveis+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Rua Godofredo Viana, 123. Próx. Teatro Arthur Azevedo. Centro.</a></td>
                             <td data-label="CEP">65015-160</td>
                             <td data-label="Anotação"></td>
                         </tr>
@@ -380,15 +385,15 @@
                             <td data-label="Nome"><strong>3ª Zona de Registro de Imóveis</strong></td>
                             <td data-label="Contato"><a href="tel:9831818662" class="phone-link">(98) 3181-8662</a></td>
                             <td data-label="Email">3rislz@gmail.com</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ4-FkkqaN9gcRlAYa6Ebzwp4" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Daniel de La Touche, 20. Edifício Mocelin Tower, 9º andar. Cohama</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=3ª+Zona+de+Registro+de+Imóveis+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Daniel de La Touche, 20. Edifício Mocelin Tower, 9º andar. Cohama</a></td>
                             <td data-label="CEP">65074-115</td>
                             <td data-label="Anotação"></td>
                         </tr>
                         <tr>
                             <td data-label="Nome"><strong>4º Registro de Imóveis</strong></td>
-                            <td data-label="Contato"><a href="tel:9831810104" class="phone-link">(98) 3181-0104</a><br><a href="tel:98991181870" class="phone-link">(98) 99118-1870</a></td>
+                            <td data-label="Contato"><a href="tel:9831810104" class="phone-link">(98) 3181-0104</a><br><a href="tel:98991181870" class="phone-link">(98) 9 9118-1870</a></td>
                             <td data-label="Email">4ri.saoluis@gmail.com</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJo-Xh8G2T9gcRNC30BEDI4fI" target="_blank" rel="noopener noreferrer" class="map-link">Avenida dos Holandeses, 7508. Loja 12, Centro Comercial Queiroz Center, Olho d'Água</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=4º+Registro+de+Imóveis+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Avenida dos Holandeses, 7508. Loja 12, Centro Comercial Queiroz Center, Olho d'Água</a></td>
                             <td data-label="CEP">65065-180</td>
                             <td data-label="Anotação"></td>
                         </tr>
@@ -404,41 +409,41 @@
                     <tbody>
                         <tr>
                             <td data-label="Nome"><strong>1ª Zona de Registro Civil</strong></td>
-                            <td data-label="Contato"><a href="tel:9833034546" class="phone-link">(98) 3303-4546</a><br><a href="tel:98985449732" class="phone-link">(98) 98544-9732</a></td>
+                            <td data-label="Contato"><a href="tel:9833034546" class="phone-link">(98) 3303-4546</a><br><a href="tel:98985449732" class="phone-link">(98) 9 8544-9732</a></td>
                             <td data-label="Email">primeirazonama@gmail.com</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJJWDnyiO5ypIRT3518-FYrJ8" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Beira-Mar, 354 - Centro</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=1ª+Zona+de+Registro+Civil+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Beira-Mar, 354 - Centro</a></td>
                             <td data-label="CEP">65010-070</td>
                             <td data-label="Anotação"></td>
                         </tr>
                         <tr>
                             <td data-label="Nome"><strong>2ª Zona de Registro Civil</strong></td>
-                            <td data-label="Contato"><a href="tel:9832214996" class="phone-link">(98) 3221-4996</a><br><a href="tel:98981461592" class="phone-link">(98) 98146-1592</a></td>
+                            <td data-label="Contato"><a href="tel:9832214996" class="phone-link">(98) 3221-4996</a><br><a href="tel:98981461592" class="phone-link">(98) 9 8146-1592</a></td>
                             <td data-label="Email">saoluis.2rcpn@yahoo.com.br</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJNSS8BB2P9gcRM3p1xKwtj_g" target="_blank" rel="noopener noreferrer" class="map-link">Rua do Norte, 580 - Centro</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=2ª+Zona+de+Registro+Civil+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Rua do Norte, 580 - Centro</a></td>
                             <td data-label="CEP">65015-330</td>
                             <td data-label="Anotação"></td>
                         </tr>
                         <tr>
                             <td data-label="Nome"><strong>3ª Zona de Registro Civil</strong></td>
-                            <td data-label="Contato"><a href="tel:9832434477" class="phone-link">(98) 3243-4477</a><br><a href="tel:98987186683" class="phone-link">(98) 98718-6683</a></td>
+                            <td data-label="Contato"><a href="tel:9832434477" class="phone-link">(98) 3243-4477</a><br><a href="tel:98987186683" class="phone-link">(98) 9 8718-6683</a></td>
                             <td data-label="Email">cartorio3zonama@hotmail.com</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ5Z7ah7CP9gcRuqCI09wgupo" target="_blank" rel="noopener noreferrer" class="map-link">Avenida dos Expedicionários, 133 - João Paulo</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=3ª+Zona+de+Registro+Civil+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Avenida dos Expedicionários, 133 - João Paulo</a></td>
                             <td data-label="CEP">65040-120</td>
                             <td data-label="Anotação"></td>
                         </tr>
                         <tr>
                             <td data-label="Nome"><strong>4ª Zona de Registro Civil</strong></td>
-                            <td data-label="Contato"><a href="tel:9833015518" class="phone-link">(98) 3301-5518</a><br><a href="tel:98991218080" class="phone-link">(98) 99121-8080</a></td>
+                            <td data-label="Contato"><a href="tel:9833015518" class="phone-link">(98) 3301-5518</a><br><a href="tel:98991218080" class="phone-link">(98) 9 9121-8080</a></td>
                             <td data-label="Email">cartorio4zona@enochvasconcelos.com.br</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJA-KbqrKR9gcRCheixT69JI0" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Contorno Leste, 4 - Quadra 14 - Cohatrac I</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=4ª+Zona+de+Registro+Civil+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Contorno Leste, 4 - Quadra 14 - Cohatrac I</a></td>
                             <td data-label="CEP">65053-570</td>
                             <td data-label="Anotação"></td>
                         </tr>
                         <tr>
                             <td data-label="Nome"><strong>5ª Zona de Registro Civil</strong></td>
-                            <td data-label="Contato"><a href="tel:98970222267" class="phone-link">(98) 97022-2267</a></td>
+                            <td data-label="Contato"><a href="tel:98970222267" class="phone-link">(98) 9 7022-2267</a></td>
                             <td data-label="Email">cartoriozona5@gmail.com</td>
-                            <td data-label="Endereço"><a href="https://www.google.com/maps/place/?q=place_id:ChIJH_4utN2O9gcRDFJd5xGLztE" target="_blank" rel="noopener noreferrer" class="map-link">Rua das Limeiras, Qda. B, Casa 02 - Jardim Renascença</a></td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=5ª+Zona+de+Registro+Civil+São+Luís+Maranhão" target="_blank" rel="noopener noreferrer" class="map-link">Rua das Limeiras, Qda. B, Casa 02 - Jardim Renascença</a></td>
                             <td data-label="CEP">65076-500</td>
                             <td data-label="Anotação"></td>
                         </tr>
