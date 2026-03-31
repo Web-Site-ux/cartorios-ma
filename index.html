@@ -3,34 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartórios de São Luís - Guia Rápido</title>
+    <title>Cartórios de São Luís - Maranhão</title>
     <style>
-        body { font-family: sans-serif; background-color: #f4f4f9; color: #333; margin: 20px; }
-        h2 { color: #2c3e50; text-align: center; }
-        table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
-        th { background-color: #3498db; color: white; }
-        tr:nth-child(even) { background-color: #f9f9f9; }
-        .btn { display: inline-block; padding: 6px 12px; background: #27ae60; color: white; text-decoration: none; border-radius: 4px; font-size: 0.9em; }
+        /* Estilo Geral */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Container da Tabela */
+        .table-container {
+            width: 100%;
+            max-width: 1200px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Cabeçalho */
+        thead {
+            background-color: #3498db;
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Linhas e Células */
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            color: #444;
+            font-size: 15px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: #f8fbff;
+        }
+
+        /* Coluna de Ação (Botão) */
+        .col-acao {
+            width: 120px;
+            text-align: center;
+        }
+
+        .btn-mapa {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #27ae60;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-mapa:hover {
+            background-color: #219150;
+        }
+
+        /* Responsividade para Celular */
+        @media (max-width: 600px) {
+            th:nth-child(2), td:nth-child(2) { display: none; } /* Esconde localização em telas pequenas */
+        }
     </style>
 </head>
 <body>
+
     <h2>📍 Cartórios de São Luís - Maranhão</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Serventia</th>
-                <th>Localização</th>
-                <th>Ação</th>
-            </tr>
-        </thead>
-        <tbody id="tabela-corpo">
-            <tr>
-                <td>1º Ofício de Notas</td>
-                <td>Rua do Egito, Centro</td>
-                <td><a href="#" class="btn">Ver Mapa</a></td>
-            </tr>
-        </tbody>
-    </table>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Serventia</th>
+                    <th>Localização</th>
+                    <th class="col-acao">Ação</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-corpo">
+                <tr>
+                    <td>1º Ofício de Notas</td>
+                    <td>Rua do Egito, Centro</td>
+                    <td class="col-acao">
+                        <a href="https://www.google.com/maps/search/1+oficio+de+notas+sao+luis+ma" target="_blank" class="btn-mapa">Ver Mapa</a>
+                    </td>
+                </tr>
+                </tbody>
+        </table>
+    </div>
+
 </body>
 </html>
