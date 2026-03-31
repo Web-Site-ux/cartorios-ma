@@ -1,88 +1,42 @@
-import requests
-from bs4 import BeautifulSoup
-import json
-import os
-import unicodedata
+name: Monitor TJMA
 
-TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')
-TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
+on:
+  schedule:
+    - cron: '0 11 * * *' 
+  workflow_dispatch:
 
-URL_TJMA = "https://www.tjma.jus.br/primeiro-grau/cgj/serventias"
-ARQUIVO_JSON = "memoria_tjma.json"
+jobs:
+  verificar_site:
+    runs-on: ubuntu-latest
 
-def enviar_alerta_telegram(mensagem):
-    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
-        print("Aviso: Credenciais do Telegram ausentes.")
-        return
-    
-    url_api = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
-    payload = {"chat_id": TELEGRAM_CHAT_ID, "text": mensagem, "parse_mode": "HTML"}
-    try:
-        requests.post(url_api, json=payload)
-    except Exception as e:
-        print(f"Erro no Telegram: {e}")
+    steps:
+    - name: 1. Clonar o repositório
+      uses: actions/checkout@v4
 
-def remover_acentos(txt):
-    return ''.join(c for c in unicodedata.normalize('NFD', txt) if unicodedata.category(c) != 'Mn')
+    - name: 2. Preparar o ambiente Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
 
-def extrair_dados_tjma():
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
-    try:
-        response = requests.get(URL_TJMA, headers=headers, timeout=15)
-        response.raise_for_status()
-    except Exception as e:
-        print(f"Erro de conexão: {e}")
-        return None
+    - name: 3. Instalar as ferramentas de leitura
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4
 
-    soup = BeautifulSoup(response.text, 'html.parser')
-    cartorios_extraidos = {}
+    - name: 4. Acordar o Robô Rastreador
+      env:
+        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      run: python monitor_tjma.py
 
-    # TÁTICA DA REDE DE ARRASTO: Procura em todas as tags que costumam ter texto
-    for bloco in soup.find_all(['li', 'div', 'p', 'td']):
-        texto_bruto = bloco.get_text(separator=" | ", strip=True)
-        texto_limpo = remover_acentos(texto_bruto.upper())
-        
-        # Filtro: Tem que mencionar a cidade e um tipo de serventia
-        if "SAO LUIS" in texto_limpo and ("ZONA" in texto_limpo or "TABELIONATO" in texto_limpo or "OFICIO" in texto_limpo or "REGISTRO" in texto_limpo):
-            # Limite para não pegar o texto da página inteira se for uma div gigante
-            if 20 < len(texto_bruto) < 1500:
-                chave = texto_limpo[:40] # Usa os primeiros caracteres como chave
-                cartorios_extraidos[chave] = texto_bruto
-
-    print(f"✅ Extração concluída: {len(cartorios_extraidos)} registros encontrados.")            
-    
-    # SISTEMA DE DIAGNÓSTICO: Se der 0, mostra o que o robô está "vendo"
-    if len(cartorios_extraidos) == 0:
-        print("\n--- 🚨 ALERTA: O ROBÔ NÃO ENCONTROU OS TEXTOS ---")
-        print("Veja as primeiras 500 letras do HTML que o robô recebeu do TJMA:")
-        texto_da_pagina = soup.get_text(separator=" ", strip=True)
-        print(texto_da_pagina[:500])
-        print("---------------------------------------------------\n")
-
-    return cartorios_extraidos
-
-def executar_monitoramento():
-    print("Iniciando varredura no portal do TJMA...")
-    dados_atuais_site = extrair_dados_tjma()
-    
-    if not dados_atuais_site:
-        print("Falha na extração ou site vazio. Encerrando execução.")
-        return
-
-    dados_antigos = {}
-    if os.path.exists(ARQUIVO_JSON):
-        with open(ARQUIVO_JSON, 'r', encoding='utf-8') as arquivo:
-            dados_antigos = json.load(arquivo)
-
-    if dados_atuais_site != dados_antigos:
-        print("🚨 Divergência encontrada! Os dados oficiais mudaram.")
-        mensagem_alerta = "🚨 <b>Atualização no TJMA Detectada!</b>\n\nO robô detectou uma mudança na lista oficial de serventias. Acesse o GitHub para verificar."
-        enviar_alerta_telegram(mensagem_alerta)
-        
-        with open(ARQUIVO_JSON, 'w', encoding='utf-8') as arquivo:
-            json.dump(dados_atuais_site, arquivo, ensure_ascii=False, indent=4)
-    else:
-        print("✅ Tudo atualizado. Nenhuma alteração nos cartórios hoje.")
-
-if __name__ == "__main__":
-    executar_monitoramento()
+    - name: 5. Salvar novos dados (se houver mudança)
+      run: |
+        git config --global user.name 'Robô do Guia'
+        git config --global user.email 'actions@github.com'
+        if [ -f memoria_tjma.json ]; then
+          git add memoria_tjma.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "🤖 Atualização automática"
+          git push
+        else
+          echo "Nenhum arquivo novo para salvar. Tudo certo!"
+        fi
