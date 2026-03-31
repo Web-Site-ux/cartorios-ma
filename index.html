@@ -1,127 +1,559 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartórios de São Luís - Maranhão</title>
+    <title>Guia de Cartórios - São Luís</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* Estilo Geral */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 20px;
+        /* RESET BÁSICO */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* TIPOGRAFIA E FUNDO DA PÁGINA */
+        body { 
+            background-color: #f4f7f9; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            font-family: 'Inter', sans-serif; 
+            color: #334155; 
+        }
+
+        /* CABEÇALHO */
+        header { 
+            background-color: #ffffff; 
+            display: flex; 
+            align-items: center; 
+            padding: 15px 5%; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+            position: relative;
+            z-index: 10;
+        }
+        
+        header img { 
+            height: 60px; 
+            border-radius: 0; 
+            background-color: transparent; 
+            margin-right: 20px; 
+        }
+        
+        .header-text {
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        header h1 { 
+            color: #000080; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 28px; 
+            letter-spacing: -0.5px;
         }
 
-        /* Container da Tabela */
-        .table-container {
-            width: 100%;
-            max-width: 1200px;
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        /* Cabeçalho */
-        thead {
-            background-color: #3498db;
-            color: white;
-        }
-
-        th {
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-        }
-
-        /* Linhas e Células */
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #eee;
-            color: #444;
-            font-size: 15px;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:hover {
-            background-color: #f8fbff;
-        }
-
-        /* Coluna de Ação (Botão) */
-        .col-acao {
-            width: 120px;
-            text-align: center;
-        }
-
-        .btn-mapa {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: #27ae60;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
+        header p {
+            color: #64748b; 
             font-size: 13px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
+            margin-top: 2px;
         }
 
-        .btn-mapa:hover {
-            background-color: #219150;
+        /* CONTEÚDO PRINCIPAL */
+        main { 
+            flex-grow: 1; 
+            padding: 25px 5%; 
+            max-width: 1400px; 
+            margin: 0 auto;
+            width: 100%;
         }
 
-        /* Responsividade para Celular */
-        @media (max-width: 600px) {
-            th:nth-child(2), td:nth-child(2) { display: none; } /* Esconde localização em telas pequenas */
+        /* BARRA DE PESQUISA */
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 20px 14px 45px;
+            border: 1px solid #cbd5e1;
+            border-radius: 50px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            color: #334155;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #000080;
+            box-shadow: 0 0 0 3px rgba(0, 0, 128, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: #94a3b8;
+        }
+
+        /* NAVEGAÇÃO SUPERIOR */
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-buttons { 
+            display: inline-flex; 
+            background-color: #e2e8f0; 
+            padding: 5px; 
+            border-radius: 50px; 
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+            flex-wrap: wrap; 
+            justify-content: center;
+        }
+
+        .nav-btn { 
+            background-color: transparent; 
+            border: none; 
+            padding: 10px 25px; 
+            font-size: 13px; 
+            font-weight: 600; 
+            font-family: 'Montserrat', sans-serif;
+            color: #64748b; 
+            cursor: pointer; 
+            border-radius: 40px; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+
+        .nav-btn:hover { color: #000080; }
+        
+        .nav-btn.active { 
+            background-color: #ffffff; 
+            color: #000080; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+        }
+
+        /* ÁREA DAS TABELAS */
+        .table-wrapper {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05); 
+            overflow: hidden; 
+            border: 1px solid #e2e8f0;
+        }
+
+        .tab-content { display: none; animation: fadeIn 0.4s ease; }
+        .tab-content.active { display: block; }
+        
+        table { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: auto; }
+        
+        th, td { 
+            padding: 12px 15px; 
+            text-align: left; 
+            border-bottom: 1px solid #f1f5f9; 
+            line-height: 1.4; 
+        }
+        
+        th { 
+            background-color: #f8fafc; 
+            color: #0f172a; 
+            font-weight: 600; 
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        tr:nth-child(even) { background-color: #fafbfc; }
+        tr:hover { background-color: #f0f9ff; } 
+
+        td strong { color: #0f172a; font-weight: 600; }
+
+        table td:nth-child(2), table td:nth-child(5) { 
+            white-space: nowrap; 
+        }
+
+        /* LINKS DO GOOGLE MAPS E TELEFONES */
+        .map-link, .phone-link {
+            color: #000080;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        .map-link:hover, .phone-link:hover {
+            text-decoration: underline;
+            color: #2563eb; 
+        }
+
+        .phone-link {
+            display: inline-block;
+            margin-bottom: 2px;
+            white-space: nowrap;
+        }
+
+        /* ESTADO VAZIO DA PESQUISA */
+        .no-results {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-weight: 500;
+            display: none;
+        }
+
+        /* RODAPÉ */
+        footer { 
+            background-color: #ffffff; 
+            padding: 15px; 
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        /* Animação */
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(5px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        /* =========================================
+           UX MOBILE: TRANSFORMA TABELA EM CARDS 
+           ========================================= */
+        @media screen and (max-width: 768px) {
+            .table-wrapper {
+                border: none;
+                box-shadow: none;
+                background-color: transparent;
+            }
+            
+            table, thead, tbody, th, td, tr { 
+                display: block; 
+            }
+            
+            thead tr { 
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            
+            tr { 
+                border: 1px solid #e2e8f0;
+                border-radius: 10px;
+                margin-bottom: 15px;
+                background-color: #ffffff;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+                overflow: hidden;
+            }
+            
+            td { 
+                border: none;
+                border-bottom: 1px solid #f1f5f9; 
+                position: relative;
+                padding-left: 35%; 
+                text-align: right; 
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+
+            td:last-child { border-bottom: none; }
+            
+            td:before { 
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                width: 30%; 
+                padding-right: 10px; 
+                white-space: nowrap;
+                text-align: left;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 600;
+                font-size: 10px;
+                color: #64748b;
+                text-transform: uppercase;
+                content: attr(data-label);
+            }
+
+            table td:nth-child(4) { min-width: auto; }
+            table td:nth-child(2), table td:nth-child(5) { white-space: normal; }
+            td strong { font-size: 14px; color: #000080;}
+            
+            table td:nth-child(3) { word-break: break-all; }
+            
+            /* Ajustes do cabeçalho para mobile */
+            header {
+                flex-direction: row; 
+                padding: 15px 5%;
+                text-align: left;
+            }
+            header img {
+                height: 45px; 
+                margin-right: 12px;
+                margin-bottom: 0;
+            }
+            header h1 { font-size: 18px; }
+            header p {
+                font-size: 11px;
+                margin-top: 0;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h2>📍 Cartórios de São Luís - Maranhão</h2>
+    <header>
+        <img src="https://www.4notasslz.com.br/images/logo4tab.jpg" alt="Logo 4º Tabelionato">
+        <div class="header-text">
+            <h1>Cartórios de São Luís/MA</h1>
+            <p>Localização e canais oficiais de atendimento</p>
+        </div>
+    </header>
 
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Serventia</th>
-                    <th>Localização</th>
-                    <th class="col-acao">Ação</th>
-                </tr>
-            </thead>
-            <tbody id="tabela-corpo">
-                <tr>
-                    <td>1º Ofício de Notas</td>
-                    <td>Rua do Egito, Centro</td>
-                    <td class="col-acao">
-                        <a href="https://www.google.com/maps/search/1+oficio+de+notas+sao+luis+ma" target="_blank" class="btn-mapa">Ver Mapa</a>
-                    </td>
-                </tr>
-                </tbody>
-        </table>
-    </div>
+    <main>
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-input" onkeyup="filtrarCartorios()" placeholder="Buscar por nome, bairro, rua ou referência...">
+        </div>
 
+        <div class="nav-container">
+            <div class="nav-buttons">
+                <button class="nav-btn active" onclick="abrirAba(event, 'notas')">NOTAS</button>
+                <button class="nav-btn" onclick="abrirAba(event, 'imoveis')">IMÓVEIS</button>
+                <button class="nav-btn" onclick="abrirAba(event, 'civil')">CIVIL</button>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <div id="notas" class="tab-content active">
+                <table id="tabela-notas">
+                    <thead>
+                        <tr><th>Nome</th><th>Contato</th><th>Email</th><th>Endereço</th><th>CEP</th><th>Referência</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Nome"><strong>1º Tabelionato de Notas</strong></td>
+                            <td data-label="Contato"><a href="tel:9832319142" class="phone-link">(98) 3231-9142</a><br><a href="tel:9832319116" class="phone-link">(98) 3231-9116</a></td>
+                            <td data-label="Email">cartoriotitosoares@gmail.com</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=1º+Tabelionato+de+Notas+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Rua do Sol, 156-A. Centro</a></td>
+                            <td data-label="CEP">65020-590</td>
+                            <td data-label="Referência">Centro de São Luís</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>2º Tabelionato de Notas</strong></td>
+                            <td data-label="Contato"><a href="tel:9832317953" class="phone-link">(98) 3231-7953</a><br><a href="tel:98991760946" class="phone-link">(98) 9 9176-0946</a></td>
+                            <td data-label="Email">contato@2notasslz.com.br</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=2º+Tabelionato+de+Notas+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Avenida João Pessoa, 404. Salas 01/02/03. Outeiro da Cruz.</a></td>
+                            <td data-label="CEP">65040-003</td>
+                            <td data-label="Referência">Centro Comercial Outeiro Mall</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>3º Tabelionato de Notas</strong></td>
+                            <td data-label="Contato"><a href="tel:9832314817" class="phone-link">(98) 3231-4817</a><br><a href="tel:98991460635" class="phone-link">(98) 9 9146-0635</a></td>
+                            <td data-label="Email">slz3tabelionato@gmail.com</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=3º+Tabelionato+de+Notas+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Avenida dos Holandeses, Quadra 36, Loja 36. Calhau.</a></td>
+                            <td data-label="CEP">65071-380</td>
+                            <td data-label="Referência">Shopping do Automóvel</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>4º Tabelionato de Notas</strong></td>
+                            <td data-label="Contato"><a href="tel:9832435695" class="phone-link">(98) 3243-5695</a></td>
+                            <td data-label="Email">cartorio@4notasslz.com.br</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=4º+Tabelionato+de+Notas+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Daniel de La Touche, 20. Vicente Fialho</a></td>
+                            <td data-label="CEP">65074-115</td>
+                            <td data-label="Referência">Edifício Mocelin Tower</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>5º Tabelionato de Notas e Contratos Marítimos</strong></td>
+                            <td data-label="Contato"><a href="tel:9833037155" class="phone-link">(98) 3303-7155</a></td>
+                            <td data-label="Email">cartorio@5oficiosaoluis.com.br</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=5º+Tabelionato+de+Notas+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Colares Moreira, 2. Térreo, Lojas 13 e 14. Jardim Renascença</a></td>
+                            <td data-label="CEP">65075-441</td>
+                            <td data-label="Referência">Edifício Planta Tower</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>6º Tabelionato de Notas</strong></td>
+                            <td data-label="Contato"><a href="tel:9831156006" class="phone-link">(98) 3115-6006</a></td>
+                            <td data-label="Email">contato@6tabelionato.not.br</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=6º+Tabelionato+de+Notas+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Avenida São Luís Rei de França, nº 08. Loja S13. Turu</a></td>
+                            <td data-label="CEP">65065-470</td>
+                            <td data-label="Referência">Shopping Rio Anil</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>7º Tabelionato de Notas</strong></td>
+                            <td data-label="Contato"><a href="tel:9832562266" class="phone-link">(98) 3256-2266</a></td>
+                            <td data-label="Email">contato@cartoriosaoluis.not.br</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=7º+Tabelionato+de+Notas+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Daniel de La Touche, nº 6, quadra D, Área 1, Cohama</a></td>
+                            <td data-label="CEP">65074-115</td>
+                            <td data-label="Referência">Em frente ao McDonald's</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>8º Tabelionato de Notas</strong></td>
+                            <td data-label="Contato"><a href="tel:9832421734" class="phone-link">(98) 3242-1734</a></td>
+                            <td data-label="Email">8tabelionatonotasslz@gmail.com</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=8º+Tabelionato+de+Notas+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Rua do Amor, 23, Vila Bacanga</a></td>
+                            <td data-label="CEP">65080-840</td>
+                            <td data-label="Referência"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="no-results" id="vazio-notas">Nenhum cartório encontrado nesta aba.</div>
+            </div>
+
+            <div id="imoveis" class="tab-content">
+                <table id="tabela-imoveis">
+                    <thead>
+                        <tr><th>Nome</th><th>Contato</th><th>Email</th><th>Endereço</th><th>CEP</th><th>Referência</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Nome"><strong>1ª Zona de Registro de Imóveis</strong></td>
+                            <td data-label="Contato"><a href="tel:9830421589" class="phone-link">(98) 3042-1589</a><br><a href="tel:98987853146" class="phone-link">(98) 9 8785-3146</a></td>
+                            <td data-label="Email">1rislcartma@gmail.com</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=1ª+Zona+de+Registro+de+Imóveis+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Rua das Andirobas, 10. Jardim Renascença</a></td>
+                            <td data-label="CEP">65075-040</td>
+                            <td data-label="Referência">Edifício Executive Lake Center</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>2ª Zona de Registro de Imóveis</strong></td>
+                            <td data-label="Contato"><a href="tel:9832327692" class="phone-link">(98) 3232-7692</a></td>
+                            <td data-label="Email">cartorioimoveisjurandyleite@hotmail.com</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=2ª+Zona+de+Registro+de+Imóveis+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Rua Godofredo Viana, 123. Centro.</a></td>
+                            <td data-label="CEP">65015-160</td>
+                            <td data-label="Referência">Próximo ao Teatro Arthur Azevedo</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>3ª Zona de Registro de Imóveis</strong></td>
+                            <td data-label="Contato"><a href="tel:9830113606" class="phone-link">(98) 3011-3606</a><br><a href="tel:98992053164" class="phone-link">(98) 9 9205-3164</a></td>
+                            <td data-label="Email">contato@3rislz.com.br</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=3ª+Zona+de+Registro+de+Imóveis+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Daniel de La Touche, 20. 9º andar. Cohama</a></td>
+                            <td data-label="CEP">65074-115</td>
+                            <td data-label="Referência">Edifício Mocelin Tower</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>4º Registro de Imóveis</strong></td>
+                            <td data-label="Contato"><a href="tel:9831810104" class="phone-link">(98) 3181-0104</a></td>
+                            <td data-label="Email">4ri.saoluis@gmail.com</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=4º+Registro+de+Imóveis+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Avenida dos Holandeses, 7508. Lojas 12 e 13, Olho d'Água</a></td>
+                            <td data-label="CEP">65065-180</td>
+                            <td data-label="Referência">Centro Comercial Queiroz Center</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="no-results" id="vazio-imoveis">Nenhum cartório encontrado nesta aba.</div>
+            </div>
+
+            <div id="civil" class="tab-content">
+                <table id="tabela-civil">
+                    <thead>
+                        <tr><th>Nome</th><th>Contato</th><th>Email</th><th>Endereço</th><th>CEP</th><th>Referência</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Nome"><strong>1ª Zona de Registro Civil</strong></td>
+                            <td data-label="Contato"><a href="tel:9833034546" class="phone-link">(98) 3303-4546</a><br><a href="tel:98985449732" class="phone-link">(98) 9 8544-9732</a></td>
+                            <td data-label="Email">primeirazonama@gmail.com</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=1ª+Zona+de+Registro+Civil+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Beira-Mar, 354. Centro</a></td>
+                            <td data-label="CEP">65010-070</td>
+                            <td data-label="Referência">Próximo à Praça Maria Aragão</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>2ª Zona de Registro Civil</strong></td>
+                            <td data-label="Contato"><a href="tel:9832214996" class="phone-link">(98) 3221-4996</a><br><a href="tel:98981461592" class="phone-link">(98) 9 8146-1592</a></td>
+                            <td data-label="Email">saoluis.2rcpn@yahoo.com.br</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=2ª+Zona+de+Registro+Civil+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Rua do Norte, 580. Centro</a></td>
+                            <td data-label="CEP">65015-330</td>
+                            <td data-label="Referência"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>3ª Zona de Registro Civil</strong></td>
+                            <td data-label="Contato"><a href="tel:9832434477" class="phone-link">(98) 3243-4477</a><br><a href="tel:98987186683" class="phone-link">(98) 9 8718-6683</a></td>
+                            <td data-label="Email">cartorio3zonama@hotmail.com</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=3ª+Zona+de+Registro+Civil+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Avenida dos Expedicionários, 133. João Paulo</a></td>
+                            <td data-label="CEP">65040-120</td>
+                            <td data-label="Referência"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>4ª Zona de Registro Civil</strong></td>
+                            <td data-label="Contato"><a href="tel:9833015518" class="phone-link">(98) 3301-5518</a><br><a href="tel:98991218080" class="phone-link">(98) 9 9121-8080</a></td>
+                            <td data-label="Email">cartorio4zona@enochvasconcelos.com.br</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=4ª+Zona+de+Registro+Civil+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Avenida Contorno Leste, 4 - Quadra 14. Cohatrac I</a></td>
+                            <td data-label="CEP">65053-570</td>
+                            <td data-label="Referência"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nome"><strong>5ª Zona de Registro Civil</strong></td>
+                            <td data-label="Contato"><a href="tel:98970222267" class="phone-link">(98) 9 7022-2267</a></td>
+                            <td data-label="Email">cartoriozona5@gmail.com</td>
+                            <td data-label="Endereço"><a href="https://www.google.com/maps/search/?api=1&query=5ª+Zona+de+Registro+Civil+São+Luís+MA" target="_blank" rel="noopener noreferrer" class="map-link">Rua das Limeiras, Quadra B, Casa 02. Jardim Renascença</a></td>
+                            <td data-label="CEP">65076-500</td>
+                            <td data-label="Referência"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="no-results" id="vazio-civil">Nenhum cartório encontrado nesta aba.</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Atualizado em 2026 - Guia Oficial de Cartórios de São Luís</p>
+    </footer>
+
+    <script>
+        // Função de troca de Abas
+        function abrirAba(evento, nomeAba) {
+            var conteudos = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < conteudos.length; i++) {
+                conteudos[i].classList.remove("active");
+            }
+            var botoes = document.getElementsByClassName("nav-btn");
+            for (var i = 0; i < botoes.length; i++) {
+                botoes[i].classList.remove("active");
+            }
+            document.getElementById(nomeAba).classList.add("active");
+            evento.currentTarget.classList.add("active");
+            
+            filtrarCartorios();
+        }
+
+        // Função da Barra de Pesquisa Dinâmica
+        function filtrarCartorios() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let abaAtiva = document.querySelector('.tab-content.active');
+            let linhas = abaAtiva.querySelectorAll('tbody tr');
+            let tabela = abaAtiva.querySelector('table');
+            let divVazio = abaAtiva.querySelector('.no-results');
+            
+            let cartoriosVisiveis = 0;
+
+            linhas.forEach(linha => {
+                let textoDaLinha = linha.innerText.toLowerCase();
+                if (textoDaLinha.includes(input)) {
+                    linha.style.display = '';
+                    cartoriosVisiveis++;
+                } else {
+                    linha.style.display = 'none';
+                }
+            });
+
+            if (cartoriosVisiveis === 0) {
+                tabela.style.display = 'none';
+                divVazio.style.display = 'block';
+            } else {
+                tabela.style.display = 'table'; 
+                divVazio.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
